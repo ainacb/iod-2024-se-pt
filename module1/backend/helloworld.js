@@ -19,7 +19,7 @@ console.log(sum(5, 1));
 function addNumber(a, b) {
   return a + b;
 }
-console.log(addNumber(11, 48));
+console.log("ADD:", addNumber(11, 48));
 
 function subtractNumber(a, b) {
   return a - b;
@@ -36,8 +36,10 @@ function divideNumber(a, b) {
 }
 console.log(divideNumber(63, 9));
 
-function sayHello(firstName) {
+function Hello(firstName) {
   console.log("Hello" + " " + firstName);
 } //   Concatenate strings
 
-sayHello("Aina!!!");
+// console.log("Hello " + firstName); // same result as above
+
+Hello("Aina!!!");
