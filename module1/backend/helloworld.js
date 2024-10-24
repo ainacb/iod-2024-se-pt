@@ -1,3 +1,8 @@
+const Sentiment = require("sentiment"); //npm packages to be installed - to put on top for best practice, to easily indentify which packages are installed.
+const sentiment = new Sentiment();
+const result = sentiment.analyze("Cats are stupid.");
+console.log(result); // Score: -2, Comparative: -0.666
+
 console.log("Hello Aina");
 function sayHello() {
   console.log("Hello from inside of function");
@@ -24,17 +29,17 @@ console.log("ADD:", addNumber(11, 48));
 function subtractNumber(a, b) {
   return a - b;
 }
-console.log(subtractNumber(45, 15));
+console.log("SUBTRACT:", subtractNumber(45, 15));
 
 function multipleNumber(a, b) {
   return a * b;
 }
-console.log(multipleNumber(20, 3));
+console.log("MULTIPLE:", multipleNumber(20, 3));
 
 function divideNumber(a, b) {
   return a / b;
 }
-console.log(divideNumber(63, 9));
+console.log("DIVIDE:", divideNumber(63, 9));
 
 function Hello(firstName) {
   console.log("Hello" + " " + firstName);
