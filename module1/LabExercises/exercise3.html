@@ -22,32 +22,67 @@
         align-items: center;
         flex: 1;
       }
+      h1 {
+        padding: 80px;
+        color: crimson;
+      }
+      button {
+        background-color: rgb(48, 4, 98);
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color: rgb(127, 217, 232);
+        border-radius: 12px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div
-        class="column"
-        id="column1"
-        style="
-          background-image: url(https://static.vecteezy.com/system/resources/previews/000/394/943/original/hello-greeting-card-vector.jpg);
-          background-size: cover;
-        "
-      >
-        <h1 id="heading1">Hello</h1>
+      <div class="column" id="column1">
+        <h1
+          id="heading1"
+          style="
+            background-image: url(https://static.vecteezy.com/system/resources/previews/000/394/943/original/hello-greeting-card-vector.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-size: 100% 100%;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+          "
+        >
+          Hello
+        </h1>
         <button onclick="changeColumn1()">Change Me</button>
       </div>
-      <div
-        class="column"
-        id="column2"
-        style="
-          background-image: url(https://img.freepik.com/premium-vector/cartoon-earth-with-face-cloud-top_835197-6050.jpg?w=740);
-          background-size: cover;
-        "
-      >
-        <h1 id="heading2">World</h1>
-        <button onclick="changeColumn2()">Change Me</button>
+      <div class="column" id="column2">
+        <h1
+          id="heading2"
+          style="
+            background-image: url(https://img.freepik.com/premium-vector/cartoon-earth-with-face-cloud-top_835197-6050.jpg?w=740);
+            background-repeat: no-repeat;
+            background-size: covers;
+            background-size: 100% 100%;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+          "
+        >
+          World
+        </h1>
+        <button id="changeColumn2" onclick="changeColumn2()">Change Me</button>
       </div>
     </div>
+    <script>
+      function changeColumn1() {
+        document.getElementById("column1").style.backgroundColor = "dodgerblue";
+        document.getElementById("heading1").innerHTML = "Welcome";
+        document.getElementById("heading1").style.color = "darkgreen";
+      }
+      function changeColumn2() {
+        document.getElementById("column2").style.backgroundColor = "violet";
+        document.getElementById("heading2").innerHTML = "Back";
+        document.getElementById("heading2").style.color = "darkgreen";
+      }
+    </script>
   </body>
 </html>
