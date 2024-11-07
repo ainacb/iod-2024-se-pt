@@ -1,0 +1,136 @@
+/* I. Selectors */
+
+article {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid rgb(94, 0, 172);
+}
+
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+
+.style-me1 {
+  color: red;
+}
+
+#style-me2 {
+  color: blue;
+}
+
+.style-me1,
+#style-me2 {
+  color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+
+.my-descendants-are-styled {
+  background-color: red;
+}
+
+.my-children-are-styled {
+  background-color: lightgreen;
+}
+
+/* II. Box model and common properties */
+
+.box {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: lightgray;
+}
+
+/* Put styles for questions 1-8 here */
+
+.box {
+  background-color: aquamarine;
+  margin: 4px 2px 1px;
+  padding: 4px 2px 1px;
+  width: 80vw;
+  height: 10vh;
+  border: 10px solid pink;
+  box-sizing: content-box;
+  overflow: auto;
+  outline: 10px;
+  border-radius: 20px;
+  background-image: url("./assets/images/img1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+
+.position-absolute {
+  position: absolute;
+  top: 20px;
+  background-color: blueviolet;
+}
+
+.position-relative {
+  position: relative;
+  background-color: violet;
+  left: 5%;
+}
+
+.position-sticky {
+  position: sticky;
+  background-color: chartreuse;
+  top: 20px;
+}
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+
+.text-style {
+  color: crimson;
+  font-size: 20px;
+  line-height: 3em;
+  font-weight: 800;
+  font-family: "Sour Gummy", sans-serif;
+  font-weight: 400;
+  text-align: right;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+  text-transform: uppercase;
+  text-decoration: line-through;
+}
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+a:link {
+  color: blueviolet;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(76, 21, 128);
+  text-decoration: overline;
+}
+
+a:visited {
+  color: chocolate;
+}
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
+
+.calc-style {
+  width: 100vw;
+  background-color: rgb(185, 124, 241);
+  width: calc(100vw - 100px);
+}
+
+.fixed-width-col {
+  width: 350px;
+  display: inline-block;
+}
+
+.fluid-col {
+  display: inline-block;
+  width: calc(350px - 100px);
+}
