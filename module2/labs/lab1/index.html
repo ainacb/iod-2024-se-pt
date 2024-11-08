@@ -16,6 +16,19 @@
       td {
         border: 1px solid black;
       }
+
+      figure {
+        margin: 20px;
+        text-align: center;
+        max-width: 300px;
+      }
+
+      figcaption {
+        font-style: italic;
+        font-size: 2em;
+        color: #555;
+        margin-top: 8px;
+      }
     </style>
   </head>
 
@@ -69,6 +82,7 @@
 
     <article>
       <h2>HTML elements - Tables - table, thead, tbody, tr, td, th</h2>
+
       <table>
         <thead>
           <tr>
@@ -97,6 +111,36 @@
           </tr>
         </tbody>
       </table>
+    </article>
+
+    <article>
+      <h2>HTML elements - img, video, audio</h2>
+
+      <img
+        src="https://picsum.photos/400/400"
+        alt="random image"
+        width="300px"
+        height="300px"
+      />
+
+      <img
+        src="\module2\labs\lab1\assets\html_lab_image.jpg"
+        alt="clouds"
+        width="300"
+        height="300"
+      />
+
+      <video autoplay loop width="250">
+        <source src="\module2\labs\lab1\assets\flower.webm" type="video/webm" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+
+      <figure>
+        <audio autoplay src="\module2\labs\lab1\assets\t-rex-roar.mp3">
+          Your browser does not support the <code>audio</code> element.
+        </audio>
+        <figcaption>Rrroar!</figcaption>
+      </figure>
     </article>
 
     <footer>Copyright &copy; 2024</footer>
