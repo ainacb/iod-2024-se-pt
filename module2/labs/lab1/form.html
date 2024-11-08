@@ -1,16 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head> </head>
+  <head>
+    <title>Module 2 Lab 1 Form</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="This webpage contains task requirements Lab 1 of Module 2"
+    />
+    <meta name="keywords" content="HTML, HTML elements, forms, inspect" />
+    <meta name="author" content="Aina Bautista" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      nav {
+        background-color: #d4a3fa;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      h3 {
+        color: rgb(62, 8, 112);
+      }
+
+      body {
+        background-color: rgb(235, 229, 241);
+      }
+    </style>
+  </head>
 
   <body>
     <header>
       <nav>
         <!-- works like <a href="/index.html">Home</a> -->
-        <a href="/">Home</a>
+        <a href="\module2\labs\lab1\index.html">Home</a>
+        <a href="\module2\labs\lab1\form.html">Form</a>
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <form method="POST" action="http://127.0.0.1:5500/form.html">
+        <div>
+          <h3>Your Name</h3>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" />
+        </div>
+        <br />
+        <div>
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" />
+        </div>
+
+        <br />
+
+        <div>
+          <h3>Favourite Coding Language</h3>
+          <input type="radio" id="html" name="fav_language" value="HTML" />
+          <label for="html">HTML</label><br />
+          <input type="radio" id="css" name="fav_language" value="CSS" />
+          <label for="css">CSS</label><br />
+          <input
+            type="radio"
+            id="javascript"
+            name="fav_language"
+            value="JavaScript"
+          />
+          <label for="javascript">JavaScript</label><br />
+        </div>
+
+        <br />
+
+        <div>
+          <h3>Type of vehicle owned</h3>
+          <input
+            type="checkbox"
+            id="motorbike"
+            name="motorbike"
+            value="motorbike"
+          />
+          <label for="motorbike"> I have a motorbike</label><br />
+          <input type="checkbox" id="car" name="car" value="car" />
+          <label for="car"> I have a car</label><br />
+          <input type="checkbox" id="boat" name="boat" value="boat" />
+          <label for="boat"> I have a boat</label><br /><br />
+        </div>
+
+        <br />
+
+        <div>
+          <h3>Brand of car owned</h3>
+          <select name="car_brand" id="car_brand">
+            <option value="audi">Audi</option>
+            <option value="toyota">Toyota</option>
+            <option value="hyundai">Hyudai</option>
+            <option value="bmw">BMW</option>
+            <option value="honda">Honda</option>
+            <option value="volvo">Volvo</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="mitsubishi">Mitsubishi</option>
+            <option value="lexus">Lexus</option>
+            <option value="mazda">Mazda</option>
+          </select>
+        </div>
+
+        <br />
+        <br />
+
+        <input type="submit" value="Submit" />
+        <br />
+        <br />
+        <br />
+      </form>
+    </main>
 
     <footer>Copyright &copy; 2024</footer>
   </body>
