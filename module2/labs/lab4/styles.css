@@ -1,0 +1,147 @@
+/* global style */
+
+section {
+  color: black;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+}
+
+footer {
+  padding: 20px;
+  padding-top: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.phone:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.phone:visited {
+  color: rgb(255, 0, 217);
+}
+
+.email {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.email:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.email:visited {
+  color: rgb(255, 0, 217);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+h2 {
+  background-color: rgb(67, 19, 126);
+  color: #ddd;
+  padding: 10px;
+}
+
+h3 {
+  font-weight: bolder;
+  text-align: justify;
+}
+
+h5 {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+ul {
+  border-bottom: 3px solid rgb(117, 99, 138);
+  padding-bottom: 10px;
+}
+
+.flex-container {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 20px 0;
+  padding: 0em;
+}
+
+.first-item {
+  flex: 30%;
+  background-color: rgb(155, 93, 232);
+  padding: 20px;
+}
+
+.second-item {
+  flex: 70%;
+  background-color: rgb(214, 192, 240);
+  padding: 20px;
+}
+
+/* responsive styles - use same selecto as above then adjust parameters*/
+
+/* small screen - phone */
+/* @media screen (min-width: 600px) and (max-width: 599.98px) {
+} */
+
+/* medium screen - tablet */
+/* @media screen (min-width: 960px) and (max-width: 259.98px) {
+} */
+
+/* large screen - laptop/desktop */
+/* @media screen (min-width: 1280px) and (max-width: 1919.98px) {
+} */
+
+/*sample from trainer below*/
+/* Default styles (mobile first) */
+/* .container {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+} */
+
+/* Tablet (768px and up) */
+/* @media screen and (min-width: 768px) {
+    .container {
+        width: 750px;
+        padding: 20px;
+    }
+} */
+
+/* Desktop (992px and up) */
+/* @media screen and (min-width: 992px) {
+    .container {
+        width: 970px;
+        font-size: 18px;
+    }
+} */
+
+/* Large Desktop (1200px and up) */
+/* @media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+} */
