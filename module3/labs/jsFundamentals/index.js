@@ -101,22 +101,10 @@ if (1) console.log("positive is true"); //is true because it is a non-zero numbe
 //   result += "greater than 10";
 // }
 
-// let a = 6,
-//   b = 5;
-// let result = `${a} + ${b} is ${
-//   a + b < 10 ? (result += "less than 10") : (result += "greater than 10")
-// }`;
-// let result = a + b < 10 ? "less than 10" : "greater than 10";
-
 let a = 5,
   b = 5;
 let result = `${a} + ${b} is `;
 result += a + b < 10 ? "less than 10" : "greater than 10";
-
-// change this:
-// a + b < 10 ? "less than 10" : "greater than 10"
-// to this:
-// a + b < 10 ? result += "less than 10" : result += "greater than 10"
 
 console.log(result);
 
@@ -127,3 +115,5 @@ console.log(result);
 // function getGreeting(name) {
 //   return "Hello " + name + "!";
 // }
+
+// `Hello my name is ${firstName}!`;
