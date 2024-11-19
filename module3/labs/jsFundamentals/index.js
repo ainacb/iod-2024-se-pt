@@ -244,4 +244,101 @@ basketballGame
   .addFoul()
   .finalScore();
 
-//
+// 8. The object below represents a single city.
+// a) Write a function that takes an object as an argument and uses a for…in loop to access and print to the console each of those object properties and their values. Test it using the sydney object below.
+// b) Create a new object for a different city with different properties and call your function again with the new object.
+
+const sydney = {
+  name: "Sydney",
+  population: 5_121_000,
+  state: "NSW",
+  founded: "26 January 1788",
+  timezone: "Australia/Sydney",
+};
+
+const melbourne = {
+  name: "Melbourne",
+  population: 4_936_000,
+  state: "VIC",
+  founded: "30 August 1835",
+  timezone: "Australia/Melbourne",
+};
+
+const brisbane = {
+  name: "Brisbane",
+  population: 2_280_000,
+  state: "QLD",
+  founded: "13 May 1825",
+  timezone: "Australia/Brisbane",
+};
+
+const perth = {
+  name: "Perth",
+  population: 2_093_000,
+  state: "WA",
+  founded: "12 June 1829",
+  timezone: "Australia/Perth",
+};
+
+const adelaide = {
+  name: "Adelaide",
+  population: 1_376_000,
+  state: "SA",
+  founded: "28 December 1836",
+  timezone: "Australia/Adelaide",
+};
+
+const hobart = {
+  name: "Hobart",
+  population: 240_342,
+  state: "TAS",
+  founded: "20 February 1804",
+  timezone: "Australia/Hobart",
+};
+
+const darwin = {
+  name: "Darwin",
+  population: 147_255,
+  state: "NT",
+  founded: "5 February 1869",
+  timezone: "Australia/Darwin",
+};
+
+const canberra = {
+  name: "Canberra",
+  population: 431_380,
+  state: "ACT",
+  founded: "12 March 1913",
+  timezone: "Australia/Canberra",
+};
+
+function logCityInformation(city) {
+  for (let key in city) {
+    console.log("key: " + key);
+    console.log("value: " + city[key]);
+  }
+}
+
+console.log("City Information of Sydney:");
+logCityInformation(sydney);
+
+console.log("\nCity Information of Melbourne:");
+logCityInformation(melbourne);
+
+console.log("\nCity Information of Brisbane:");
+logCityInformation(brisbane);
+
+console.log("\nCity Information of Perth:");
+logCityInformation(perth);
+
+console.log("\nCity Information of Adelaide:");
+logCityInformation(adelaide);
+
+console.log("\nCity Information of Hobart:");
+logCityInformation(hobart);
+
+console.log("\nCity Information of Darwin:");
+logCityInformation(darwin);
+
+console.log("\nCity Information of Canberra:");
+logCityInformation(canberra);
