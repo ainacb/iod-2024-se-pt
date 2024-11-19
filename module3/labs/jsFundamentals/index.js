@@ -195,17 +195,34 @@ inigo1.greeting(rugen);
 
 const basketballGame = {
   score: 0,
+  fouls: 0,
   freeThrow() {
     this.score++;
+    return this;
   },
   basket() {
     this.score += 2;
+    return this;
   },
   threePointer() {
     this.score += 3;
+    return this;
+  },
+  addFoul() {
+    this.fouls++;
+    return this;
   },
   halfTime() {
-    console.log("Halftime score is " + this.score);
+    console.log(
+      "Halftime score is " + this.score + " with " + this.fouls + " fouls."
+    );
+    return this;
+  },
+  finalScore() {
+    console.log(
+      "Final score is " + this.score + " with " + this.fouls + " fouls."
+    );
+    return this;
   },
 };
 
@@ -214,6 +231,17 @@ basketballGame
   .basket()
   .freeThrow()
   .freeThrow()
+  .addFoul()
   .basket()
+  .addFoul()
   .threePointer()
-  .halfTime();
+  .halfTime()
+  .addFoul()
+  .freeThrow()
+  .basket()
+  .addFoul()
+  .threePointer()
+  .addFoul()
+  .finalScore();
+
+//
