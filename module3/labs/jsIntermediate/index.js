@@ -97,3 +97,89 @@ console.log(findMatchingAnimals("K"));
 console.log(findMatchingAnimals("t"));
 console.log(findMatchingAnimals("L"));
 console.log(findMatchingAnimals("g"));
+console.log(findMatchingAnimals("A"));
+console.log(findMatchingAnimals("w"));
+console.log(findMatchingAnimals("z"));
+console.log(findMatchingAnimals("B"));
+
+// 4.
+
+function camelCase(ccsprop) {
+  return ccsprop
+    .split("-")
+    .map((word, index) =>
+      index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+    .join("");
+}
+
+console.log(camelCase("margin-left")); // marginLeft
+console.log(camelCase("background-image")); // backgroundImage
+console.log(camelCase("display")); // display
+
+// for loop
+function camelCase(cssProp) {
+  const words = cssProp.split("-");
+  let result = words[0];
+
+  for (let i = 1; i < words.length; i++) {
+    const word = words[i];
+    result += word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  return result;
+}
+
+console.log(camelCase("margin-left")); // marginLeft
+console.log(camelCase("background-image")); // backgroundImage
+console.log(camelCase("display")); // display
+
+// for...of loop
+
+function camelCase(cssProp) {
+  const words = cssProp.split("-");
+  let result = "";
+
+  for (const [index, word] of words.entries()) {
+    result += index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  return result;
+}
+
+console.log(camelCase("margin-left")); // marginLeft
+console.log(camelCase("background-image")); // backgroundImage
+console.log(camelCase("display")); // display
+
+// with conditional operator
+
+function camelCase(cssProp) {
+  return cssProp
+    .split("-")
+    .map((word, index) =>
+      index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)
+    )
+    .join("");
+}
+
+console.log(camelCase("margin-left")); // marginLeft
+console.log(camelCase("background-image")); // backgroundImage
+console.log(camelCase("display")); // display
+
+// without contional operator
+
+function camelCase(cssProp) {
+  const words = cssProp.split("-");
+  let result = words[0]; // Start with the first word
+
+  for (let i = 1; i < words.length; i++) {
+    const word = words[i];
+    result += word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  return result;
+}
+
+console.log(camelCase("margin-left")); // marginLeft
+console.log(camelCase("background-image")); // backgroundImage
+console.log(camelCase("display")); // display
