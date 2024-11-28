@@ -102,6 +102,29 @@ counter6(); // 55
 // setTimeout(delayMsg, 0, "#3: Delayed by 0ms");
 // delayMsg("#4: Not delayed at all");
 
+// a
+// first - #4: Not delayed at all - because it will be printed immediately and there is no delay parameter to be read.
+// second - #3: Delayed by 0ms - because it delayed by 0ms - it is executed almost immediately but it is still queued hence it printed after #4.
+// third - #2: Delayed by 20ms - because it  delayed by 20ms.
+// fourth - #1: Delayed by 100ms - because it delayed by 100ms.
+
+// b
+let delayMsg = (msg) => {
+  console.log(`This message will be printed after a delay: ${msg}`);
+};
+
+setTimeout(delayMsg, 100, "#1: Delayed by 100ms");
+setTimeout(delayMsg, 20, "#2: Delayed by 20ms");
+setTimeout(delayMsg, 0, "#3: Delayed by 0ms");
+delayMsg("#4: Not delayed at all");
+
+// c
+// setTimeout(delayMsg, 15000, "#5: Delayed by 15 seconds");
+
+// d
+let fifthTest = setTimeout(delayMsg, 15000, "#5: Delayed by 15 seconds");
+clearTimeout(fifthTest);
+
 // 3. 'Debouncing' is a concept that refers to 'putting off' the execution of multiple, fast-timed, similar requests until there's a brief pause, then only executing the most recent of those requests. See https://www.techtarget.com/whatis/definition/debouncing  It's often used to handle fast-firing scrolling events in a browser, or to prevent multiple server requests being initiated if a user clicks repeatedly on a button. Using the following code to test and start with:
 // a) Create a debounce(func) decorator, which is a wrapper that takes a function func and suspends calls to func until there's 1000 milliseconds of inactivity. After this 1 second pause, the most recent call to func should be executed and any others ignored.
 // b) Extend the debounce decorator function to take a second argument ms, which defines the length of the period of inactivity instead of hardcoding to 1000ms
