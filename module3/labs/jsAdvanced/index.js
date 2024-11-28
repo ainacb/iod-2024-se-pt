@@ -182,6 +182,41 @@ debouncedPrintMe("Message three");
 // b) Write a new version printFibonacciTimeouts() that uses nested setTimeout calls to do the same thing
 // c) Extend one of the above functions to accept a limit argument, which tells it how many numbers to print before stopping.
 
+// a
+
+// function printFibonacci() {
+//   let a = 0,
+//     b = 1;
+
+//   console.log(a);
+//   const intervalId = setInterval(() => {
+//     console.log(b);
+//     let next = a + b;
+//     a = b;
+//     b = next;
+//   }, 1000);
+// }
+
+// printFibonacci();
+
+// b
+
+function printFibonacciTimeouts() {
+  let a = 0,
+    b = 1;
+
+  function printNext() {
+    console.log(a);
+    let next = a + b;
+    a = b;
+    b = next;
+
+    setTimeout(printNext, 1000);
+  }
+}
+
+printNext();
+
 // 5. The following car object has several properties and a method which uses them to print a description. When calling the function normally this works as expected, but using it from within setTimeout fails. Why?
 // a) Fix the setTimeout call by wrapping the call to car.description() inside a function
 // b) Change the year for the car by creating a clone of the original and overriding it
