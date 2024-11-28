@@ -109,7 +109,7 @@ counter6(); // 55
 // fourth - #1: Delayed by 100ms - because it delayed by 100ms.
 
 // b
-let delayMsg = (msg) => {
+const delayMsg = (msg) => {
   console.log(`This message will be printed after a delay: ${msg}`);
 };
 
@@ -122,7 +122,7 @@ delayMsg("#4: Not delayed at all");
 // setTimeout(delayMsg, 15000, "#5: Delayed by 15 seconds");
 
 // d
-let fifthTest = setTimeout(delayMsg, 15000, "#5: Delayed by 15 seconds");
+const fifthTest = setTimeout(delayMsg, 15000, "#5: Delayed by 15 seconds");
 clearTimeout(fifthTest);
 
 // 3. 'Debouncing' is a concept that refers to 'putting off' the execution of multiple, fast-timed, similar requests until there's a brief pause, then only executing the most recent of those requests. See https://www.techtarget.com/whatis/definition/debouncing  It's often used to handle fast-firing scrolling events in a browser, or to prevent multiple server requests being initiated if a user clicks repeatedly on a button. Using the following code to test and start with:
@@ -131,14 +131,51 @@ clearTimeout(fifthTest);
 // c) Extend debounce to allow the original debounced function printMe to take an argument msg which is included in the console.log statement.
 
 // function printMe() {
-// console.log('printing debounced message')
+//   console.log("printing debounced message");
 // }
 // printMe = debounce(printMe); //create this debounce function for a)
-// //fire off 3 calls to printMe within 300ms - only the LAST one should print, after
-// 1000ms of no calls
-// setTimeout( printMe, 100);
-// setTimeout( printMe, 200);
-// setTimeout( printMe, 300);
+// //fire off 3 calls to printMe within 300ms - only the LAST one should print, after 1000ms of no calls
+// setTimeout(printMe, 100);
+// setTimeout(printMe, 200);
+// setTimeout(printMe, 300);
+
+// a
+
+function debounce(func, wait = 1000) {
+  let timeout;
+
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(this, args);
+    }, wait);
+  };
+}
+
+// b
+
+function debounce(func, ms = 1000) {
+  let timeout;
+
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(this, args);
+    }, ms);
+  };
+}
+
+// c
+
+function printMe(msg) {
+  console.log(`printing debounced message: ${msg}`);
+}
+
+const debouncedPrintMe = debounce(printMe, 500);
+
+debouncedPrintMe("Message one");
+debouncedPrintMe("Message two");
+debouncedPrintMe("Message three");
 
 // 4. The Fibonacci sequence of numbers is a famous pattern where the next number in the sequence is the sum of the previous 2. e.g. 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.
 // a) Write a function printFibonacci() using setInterval that outputs a number in the Fibonacci sequence every second.
