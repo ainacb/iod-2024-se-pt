@@ -245,3 +245,227 @@ class Rabbit extends Animal {
 let bunny = new Rabbit("bunny"); // bunny contains properties and methods from Animal and Rabbit
 bunny.run(9); // bunny runs with speed 9 kph.
 bunny.hide(); // bunny hides
+
+// CLASS ACTIVITY - module 3 jsAdvanced page 63
+
+// // TASK 1
+
+// // Function declarations
+// function preparePizza() {
+//   console.log("1. Started preparing pizza...");
+// }
+
+// // Function expressions
+// const madeBase = function () {
+//   console.log("2. Made the base...");
+// };
+
+// // Arrow functions
+// const addSauceCheese = () => {
+//   console.log("3. Added the sauce and cheese...");
+// };
+
+// function addToppings() {
+//   console.log("4. Added the pizza toppings...");
+// }
+
+// const cookedPizza = function () {
+//   console.log("5. Cooked the pizza...");
+// };
+
+// const readyPizza = () => {
+//   console.log("6. Pizza is ready...");
+// };
+
+// // Call functions in sequence
+// preparePizza();
+// madeBase();
+// addSauceCheese();
+// addToppings();
+// cookedPizza();
+// readyPizza();
+
+// // TASK 2
+
+// function preparePizza() {
+//   setTimeout(() => {
+//     console.log("1. Started preparing pizza...");
+//     madeBase();
+//   }, 1000);
+// }
+
+// const madeBase = function () {
+//   setTimeout(() => {
+//     console.log("2. Made the base...");
+//     addSauceCheese();
+//   }, 1000);
+// };
+
+// const addSauceCheese = () => {
+//   setTimeout(() => {
+//     console.log("3. Added the sauce and cheese...");
+//     addToppings();
+//   }, 2000);
+// };
+
+// function addToppings() {
+//   setTimeout(() => {
+//     console.log("4. Added the pizza toppings...");
+//     cookedPizza();
+//   }, 1000);
+// }
+
+// const cookedPizza = function () {
+//   setTimeout(() => {
+//     console.log("5. Cooked the pizza...");
+//     readyPizza();
+//   }, 1000);
+// };
+
+// const readyPizza = () => {
+//   setTimeout(() => {
+//     console.log("6. Pizza is ready...");
+//   }, 1000);
+// };
+
+// // Start the process
+// preparePizza();
+
+// // TASK 3
+
+// function preparePizza() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("1. Started preparing pizza...");
+//       resolve();
+//     }, 1000);
+//   });
+// }
+
+// const madeBase = function () {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("2. Made the base...");
+//       resolve();
+//     }, 1000);
+//   });
+// };
+
+// const addSauceCheese = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("3. Added the sauce and cheese...");
+//       resolve();
+//     }, 2000);
+//   });
+// };
+
+// function addToppings() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("4. Added the pizza toppings...");
+//       resolve();
+//     }, 1000);
+//   });
+// }
+
+// const cookedPizza = function () {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("5. Cooked the pizza...");
+//       resolve();
+//     }, 1000);
+//   });
+// };
+
+// const readyPizza = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log("6. Pizza is ready..");
+//       resolve();
+//     }, 1000);
+//   });
+// };
+
+// // Chain the promises
+// preparePizza()
+//   .then(madeBase)
+//   .then(addSauceCheese)
+//   .then(addToppings)
+//   .then(cookedPizza)
+//   .then(readyPizza)
+//   .catch((err) => console.error(err));
+
+// TASK 4
+
+function preparePizza() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("1. Started preparing pizza...");
+      resolve();
+    }, 1000);
+  });
+}
+
+const madeBase = function () {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("2. Made the base...");
+      resolve();
+    }, 1000);
+  });
+};
+
+const addSauceCheese = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("3. Added the sauce and cheese...");
+      resolve();
+    }, 2000);
+  });
+};
+
+function addToppings() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("4. Added the pizza toppings..");
+      resolve();
+    }, 1000);
+  });
+}
+
+const cookedPizza = function () {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("5. Cooked the pizza...");
+      resolve();
+    }, 1000);
+  });
+};
+
+const readyPizza = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("6. Pizza is ready...");
+      resolve();
+    }, 1000);
+  });
+};
+
+// Async function to handle the process
+async function makePizza() {
+  try {
+    await preparePizza();
+    await madeBase();
+    await addSauceCheese();
+    await addToppings();
+    await cookedPizza();
+    await readyPizza();
+    console.log("Pizza making process complete!");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Start the async process
+makePizza();
