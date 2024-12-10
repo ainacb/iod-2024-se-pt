@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Updates</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4 text-center">Latest News</h1>
+      <div id="news-container" class="list-group"></div>
+    </div>
+
+    <script>
+      let news = [
+        {
+          id: 1,
+          title: "Election Results",
+          content: "Newly elected minister...",
+        },
+        { id: 2, title: "Sporting Success", content: "World Cup winners..." },
+        {
+          id: 3,
+          title: "Tornado Warning",
+          content: "Residents should prepare...",
+        },
+      ];
+
+      function updateNews() {
+        const newsContainer = document.getElementById("news-container");
+        newsContainer.innerHTML = ""; // Clear existing news
+
+        news.forEach((item) => {
+          const newsItem = document.createElement("a");
+          newsItem.classList.add(
+            "list-group-item",
+            "list-group-item-action",
+            "flex-column",
+            "align-items-start"
+          );
+
+          const title = document.createElement("h5");
+          title.classList.add("mb-1");
+          title.textContent = item.title;
+
+          const content = document.createElement("p");
+          content.classList.add("mb-1");
+          content.textContent = item.content;
+
+          newsItem.appendChild(title);
+          newsItem.appendChild(content);
+          newsContainer.appendChild(newsItem);
+        });
+      }
+
+      // Initial load
+      updateNews();
+
+      // Refresh every 5 seconds
+      setInterval(updateNews, 5000);
+    </script>
+
+    <!-- Bootstrap JS and Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
