@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date-fns DateTime Format</title>
+    <!-- reference date-fns library -->
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+  </head>
+  <body>
+    <h2>Formatted Date using Date-fns</h2>
+    <div id="displayDateFns"></div>
+
+    <h2>JavaScript Date</h2>
+    <div id="displayJsDate"></div>
+
+    <h2>Lab 8</h2>
+
+    <h4>Days between birthdate and the current date</h4>
+    <div id="daysBirthToCurrent"></div>
+
+    <h4>Years, months, and days between birthdate and current date</h4>
+    <div id="yearsMonthDays"></div>
+
+    <h4>Given two dates, display the date closest to the current date</h4>
+    <div id="closestDate"></div>
+
+    <h4>
+      Given two dates, display whether the first date is before or after the
+      second date
+    </h4>
+    <div id="beforeAfterDate"></div>
+
+    <h4>Display the current time in London</h4>
+    <div id="londonTime"></div>
+
+    <script type="text/javascript">
+      (function () {
+        const nowDate = new Date();
+        const formattedDate = dateFns.format(nowDate, "PPPPpppp");
+
+        document.getElementById("displayDateFns").innerHTML = formattedDate;
+
+        document.getElementById("displayJsDate").innerHTML = nowDate.toString();
+
+        // 1.
+        const birthdate = new Date("1993-11-20");
+        const daysBetween = dateFns.differenceInDays(nowDate, birthdate);
+        document.getElementById(
+          "daysBirthToCurrent"
+        ).innerHTML = `${daysBetween} days`;
+
+        // 2.
+        const duration = dateFns.intervalToDuration({
+          start: birthdate,
+          end: nowDate,
+        });
+        const formattedDuration = `${duration.years} years, ${duration.months} months, and ${duration.days} days`;
+        document.getElementById("yearsMonthDays").innerHTML = formattedDuration;
+
+        // 3.
+        const date1 = new Date("2026-06-01");
+        const date2 = new Date("2022-07-05");
+        const closestDate = dateFns.closestTo(nowDate, [date1, date2]);
+        document.getElementById(
+          "closestDate"
+        ).innerHTML = `Closest date: ${dateFns.format(closestDate, "PPPP")}`;
+
+        // 4.
+        const isBefore = dateFns.isBefore(date1, date2);
+        document.getElementById("beforeAfterDate").innerHTML = isBefore
+          ? `Date1 (${dateFns.format(
+              date1,
+              "PPPP"
+            )}) is before Date2 (${dateFns.format(date2, "PPPP")}).`
+          : `Date1 (${dateFns.format(
+              date1,
+              "PPPP"
+            )}) is after Date2 (${dateFns.format(date2, "PPPP")}).`;
+
+        // 5.
+        const timeZone = "Europe/London";
+        const londonTime = dateFnsTz.utcToZonedTime(nowDate, timeZone);
+        const formattedLondonTime = dateFnsTz.format(
+          londonTime,
+          "yyyy-MM-dd HH:mm:ssXXX",
+          { timeZone }
+        );
+        document.getElementById(
+          "londonTime"
+        ).innerHTML = `Current time in London: ${formattedLondonTime}`;
+      })();
+    </script>
+  </body>
+</html>
