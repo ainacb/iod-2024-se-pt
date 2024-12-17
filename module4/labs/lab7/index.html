@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>lab7</title>
+    <style>
+      body {
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      .square1 {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-color: #e61010;
+        animation-name: slidein;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+      }
+
+      @keyframes slidein {
+        0% {
+          top: 0;
+          background-color: red;
+        }
+
+        50% {
+          top: calc(100vh - 200px);
+          background-color: blue;
+        }
+
+        100% {
+          top: 0;
+          background-color: red;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="square1"></div>
+  </body>
+</html>
