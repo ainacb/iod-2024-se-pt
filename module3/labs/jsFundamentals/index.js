@@ -1,4 +1,4 @@
-//1. What are the results of these expressions? (answer first, then use console.log() to check)
+// 1. What are the results of these expressions? (answer first, then use console.log() to check)
 
 "" + 1 + 0; // 10
 console.log("" + 1 + 0);
@@ -51,7 +51,7 @@ console.log(undefined === null);
 " \t \n" - 2; // -2
 console.log(" \t \n" - 2);
 
-// Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
+// 2. Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
 
 let three = "3"; // 3
 console.log(3);
@@ -353,3 +353,130 @@ logCityInformation(canberra);
 let teamSports = ["Hockey", "Cricket", "Volleyball"];
 let dog1 = "Bingo";
 let cat1 = { name: "Fluffy", breed: "Siberian" };
+
+// a) Create a new moreSports variable equal to teamSports and add some new sport values to it (using push and unshift)
+
+let moreSports = teamSports;
+moreSports.push("Baseball");
+moreSports.unshift("Football");
+
+// b) Create a new dog2 variable equal to dog1 and give it a new value
+
+let dog2 = dog1;
+dog2 = "Woffy";
+
+// c) Create a new cat2 variable equal to cat1 and change its name property
+
+let cat2 = cat1;
+cat2.name = "Whiskee";
+
+// d) Print the original teamSports, dog1 and cat1 variables to the console. Have they changed? Why?
+
+console.log("teamSports:", teamSports);
+console.log("dog1:", dog1);
+console.log("cat1:", cat1);
+
+// Explanation
+// - Arrays and objects are stored by reference in JavaScript.
+// - Assigning `moreSports = teamSports` creates a reference, so modifying `moreSports` changes `teamSports`.
+// - `cat2` is also a reference to `cat1`, so modifying `cat2` affects `cat1`.
+// - Primitive types are copied by value, so `dog1` remains unaffected when `dog2` is reassigned.
+
+// e) Change the way the moreSports and cat2 variables are created to ensure the originals remain independent
+
+let moreSportsIndependent = [...teamSports];
+moreSportsIndependent.push("Basketball");
+
+let cat2Independent = { ...cat1 };
+cat2Independent.name = "Meowth";
+
+// 10. The following constructor function creates a new Person object with the given name and age values.
+// a) Create a new person using the constructor function and store it in a variable
+// b) Create a second person using different name and age values and store it in a separate variable
+// c) Print out the properties of each person object to the console
+// d) Rewrite the constructor function as a class called PersonClass and use it to create a third person using different name and age values. Print it to the console as well.
+// e) Add a canDrive method to both the constructor function and the class that returns true if the person is old enough to drive.
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.human = true;
+// }
+
+// a) Create a new person using the constructor function and store it in a variable
+
+// let person1 = new Person("Annie", 35);
+
+// b) Create a second person using different name and age values and store it in a separate variable
+
+// let person2 = new Person("Bobby", 30);
+
+// c) Print out the properties of each person object to the console
+
+// console.log("Person 1:", person1);
+// console.log("Person 2:", person2);
+
+// d) Rewrite the constructor function as a class called PersonClass and use it to create a third person using different name and age values. Print it to the console as well.
+
+// class PersonClass {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//     this.human = true;
+//   }
+// }
+
+// let person3 = new PersonClass("Charles", 28);
+// console.log("Person 3:", person3);
+
+// e) Add a canDrive method to both the constructor function and the class that returns true if the person is old enough to drive.
+
+// class PersonClass {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//     this.human = true;
+//   }
+
+//   canDrive() {
+//     return this.age >= 18;
+//   }
+// }
+
+// let person5 = new PersonClass("Evelyn", 20);
+// console.log("Person 5 can drive:", person5.canDrive());
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.human = true;
+  this.canDrive = function () {
+    return this.age >= 18;
+  };
+}
+
+let person1 = new Person("Annie", 35);
+let person2 = new Person("Bobby", 30);
+console.log("Person 1:", person1);
+console.log("Person 2:", person2);
+
+class PersonClass {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+  }
+
+  canDrive() {
+    return this.age >= 18;
+  }
+}
+
+let person3 = new PersonClass("Charles", 28);
+console.log("Person 3:", person3);
+
+let person4 = new Person("David", 16);
+console.log("Person 4 can drive:", person4.canDrive());
+
+let person5 = new PersonClass("Evelyn", 20);
+console.log("Person 5 can drive:", person5.canDrive());
