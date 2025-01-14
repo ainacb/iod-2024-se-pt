@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const friends = require("../models/friends");
+const friendsController = require("../controllers/friendsControllers");
 
 // TODO - #1: Add support to the 'filter' endpoint for a new query parameter 'letter' which filters friends by starting letter
 
