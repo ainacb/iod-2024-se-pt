@@ -381,11 +381,43 @@ phoneBookABC.set("Barry", "0433221117");
 phoneBookABC.set("Caroline", "0455221182");
 
 // a) Create a new phoneBookDEF Map to store names beginning with D, E or F
+
+const phoneBookDEF = new Map();
+
 // b) Initialise the contents of phoneBookDEF by passing in an array of keys/values
+
+phoneBookDEF.set("Dave", "0478123456");
+phoneBookDEF.set("Elsa", "0423456789");
+phoneBookDEF.set("Fe", "0487654321");
+
 // c) Update the phone number for Caroline
+
+phoneBookABC.set("Caroline", "0455000123");
+
 // d) Write a function printPhoneBook(contacts) that prints the names and phone numbers in the given Map
+
+function printPhoneBook(contacts) {
+  contacts.forEach((name, phone) => {
+    console.log(`${name}: ${phone}`);
+  });
+}
+
+console.log("PhoneBook ABC:");
+printPhoneBook(phoneBookABC);
+
+console.log("PhoneBook DEF:");
+printPhoneBook(phoneBookDEF);
+
 // e) Combine the contents of the two individual Maps into a single phoneBook Map
+
+const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
+
 // f) Print out the full list of names in the combined phone book
+
+console.log("Combined PhoneBook:");
+phoneBook.forEach((phone, name) => {
+  console.log(`${name}: ${phone}`);
+});
 
 //9. Given the below salaries object, perform the following tasks.
 
@@ -398,7 +430,27 @@ let salaries = {
 };
 
 // a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
+
+function sumSalaries(salaries) {
+  return Object.values(salaries).reduce((sum, salary) => sum + salary, 0);
+}
+console.log("Total Salaries:", sumSalaries(salaries)); // Total Salaries: 233000
+
 // b) Write a function topEarner(salaries) that calculates and returns the name of the person earning the highest salary
+
+function topEarner(salaries) {
+  let highestSalary = 0;
+  let topEarnerName = "";
+
+  for (let [name, salary] of Object.entries(salaries)) {
+    if (salary > highestSalary) {
+      highestSalary = salary;
+      topEarnerName = name;
+    }
+  }
+  return topEarnerName;
+}
+console.log("Top Earner:", topEarner(salaries)); // Top Earner: Christina
 
 // 10. The following code uses the Date object to print the current time and the number of hours that have passed today so far. Extend the code to do the following:
 
@@ -407,6 +459,50 @@ console.log("Current time is " + today.toLocaleTimeString());
 console.log(today.getHours() + " hours have passed so far today");
 
 // a) Print the total number of minutes that have passed so far today
+
+const minutesPassedToday = today.getHours() * 60 + today.getMinutes();
+console.log(minutesPassedToday + " minutes have passed so far today");
+
 // b) Print the total number of seconds that have passed so far today
+
+const secondsPassedToday = minutesPassedToday * 60 + today.getSeconds();
+console.log(secondsPassedToday + " seconds have passed so far today");
+
 // c) Calculate and print your age as: 'I am x years, y months and z days old'
+
+function calculateAge(birthDate) {
+  const now = new Date();
+  let years = now.getFullYear() - birthDate.getFullYear();
+  let months = now.getMonth() - birthDate.getMonth();
+  let days = now.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+    months -= 1;
+    const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += previousMonth.getDate();
+  }
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+  return `I am ${years} years, ${months} months, and ${days} days old`;
+}
+
+const myBirthDate = new Date(1993, 10, 20); // Replace with your actual birthdate (year, month-1, day)
+console.log(calculateAge(myBirthDate));
+
 // d) Write a function daysInBetween(date1, date2) which calculates and returns the amount of days in between the two given dates.
+
+function daysInBetween(date1, date2) {
+  const diffTime = Math.abs(date2 - date1);
+  return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+}
+
+const date1 = new Date(2020, 0, 15); // Example date
+const date2 = new Date(); // Current date
+console.log(
+  `There are ${daysInBetween(
+    date1,
+    date2
+  )} days between ${date1.toDateString()} and ${date2.toDateString()}`
+);
