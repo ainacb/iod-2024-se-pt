@@ -19,5 +19,30 @@
   ],
   "schemes": ["http"],
   "consumes": ["application/json"],
-  "produces": ["application/json"]
+  "produces": ["application/json"],
+  "paths": {
+    "/calculator/add": {
+      "get": {
+        "tags": ["Addition Service"],
+        "summary": "Add 2 numbers",
+        "parameters": [
+          {
+            "name": "num1",
+            "in": "query",
+            "description": "The First Number"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "description": "The Second number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to add two numbers together"
+          }
+        }
+      }
+    }
+  }
 }
