@@ -1,6 +1,7 @@
 function PropsDisplayer(props) {
   // convert object to string
   const stringProps = JSON.stringify(props);
+  
   return (
     <div className="PropsDisplayer componentBox">
       <h2>Check out my props!</h2>
