@@ -5,6 +5,7 @@ import "./App.css";
 import PropsDisplayer from "./components/PropsDisplayer";
 import { City } from "./components/City";
 import Pet from "./components/Pet";
+import Greeting from "./components/Greeting";
 
 function ExampleComponent() {
   return (
@@ -96,6 +97,11 @@ props.children */
         </a>
       </div>
       <h1>Vite + React !!!</h1>
+
+      <Greeting />
+      <Greeting name="Aina">
+        <p>greeting message via children here</p>
+      </Greeting>
 
       <Pet />
       <Pet type="Dog" colour="Brown" name="Bingo" />
