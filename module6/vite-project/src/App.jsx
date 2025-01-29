@@ -12,7 +12,8 @@ import ComplexComment from "./components/ComplexComment";
 import Comment from "./components/Comment";
 import { Callout } from "./components/CallOut";
 import { FancyBox } from "./components/FancyBox";
-import MoviesList from "./components/MovieList";
+import { MoviesList} from "./components/MovieList";
+import { BigCats } from "./components/BigCats";
 
 function ExampleComponent() {
   return (
@@ -123,6 +124,8 @@ props.children */
       <Greeting name="Aina">
         <p>greeting message via children here</p>
       </Greeting>
+
+      <BigCats />
 
       <Comment
         author={comment.author}
