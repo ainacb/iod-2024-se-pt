@@ -6,6 +6,12 @@ import PropsDisplayer from "./components/PropsDisplayer";
 import { City } from "./components/City";
 import Pet from "./components/Pet";
 import Greeting from "./components/Greeting";
+import { FullName } from "./components/FullName";
+import { NamePart } from "./components/FullName";
+import ComplexComment from "./components/ComplexComment";
+import Comment from "./components/Comment";
+import { Callout } from "./components/CallOut";
+import { FancyBox } from "./components/FancyBox";
 
 function ExampleComponent() {
   return (
@@ -63,6 +69,18 @@ function App() {
     </>
   );
 
+  // object storing comment data - passed as props
+  const comment = {
+    date: new Date(),
+    text: "I hope you enjoy learning React!",
+    author: {
+      // author is also an object
+      name: "Hello Kitty",
+      avatarUrl:
+        "https://th.bing.com/th/id/OIP.LtMCtqx83DrxF_fOqsKCswHaJR?pid=ImgDet&w=145.04258943781943&h=180&c=7&dpr=1.5",
+    },
+  };
+
   function City({ name, state = "NSW", country = "Australia", children }) {
     // destructuring the props.children property as well
     return (
@@ -102,6 +120,31 @@ props.children */
       <Greeting name="Aina">
         <p>greeting message via children here</p>
       </Greeting>
+
+      <Comment
+        author={comment.author}
+        date={comment.date}
+        text={comment.text}
+      />
+
+      {/* render the component, passing object data as props */}
+      <ComplexComment
+        author={comment.author}
+        date={comment.date}
+        text={comment.text}
+      />
+
+      <Callout />
+      {/* <FancyBox /> */}
+
+      <Callout
+        title="Nested React Component"
+        message="Simple message with a fancy box applied via composition"
+      >
+        <FullName first="Elon" last="Musk" />
+      </Callout>
+
+      <FullName first="Kendrick" last="Lamar" />
 
       <Pet />
       <Pet type="Dog" colour="Brown" name="Bingo" />

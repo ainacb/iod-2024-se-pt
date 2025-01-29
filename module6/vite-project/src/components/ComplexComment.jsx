@@ -1,5 +1,6 @@
 function ComplexComment(props) {
   // complex component which displays different elements of a comment
+
   return (
     <div className="Comment componentBox">
       <div className="UserInfo">
@@ -25,3 +26,5 @@ function ComplexComment(props) {
     </div>
   );
 }
+
+export default ComplexComment;
