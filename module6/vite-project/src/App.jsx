@@ -14,6 +14,8 @@ import { Callout } from "./components/CallOut";
 import { FancyBox } from "./components/FancyBox";
 import { MoviesList} from "./components/MovieList";
 import { BigCats } from "./components/BigCats";
+import MoodChanger from "./components/MoodChanger";
+import Emoji from "./components/Emoji";
 
 function ExampleComponent() {
   return (
@@ -124,6 +126,10 @@ props.children */
       <Greeting name="Aina">
         <p>greeting message via children here</p>
       </Greeting>
+
+      <Emoji />
+
+      <MoodChanger />
 
       <BigCats />
 
