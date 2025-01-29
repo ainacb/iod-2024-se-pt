@@ -95,7 +95,29 @@ props.children */
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React!!!</h1>
+      <h1>Vite + React !!!</h1>
+
+      <Pet />
+      <Pet type="Dog" colour="Brown" name="Bingo" />
+
+      <City name="Newcastle">
+        <div>
+          Newcastle is a harbour city in the Australian state of New South
+          Wales.
+        </div>
+        <div>
+          <strong>Population:</strong> 322,278 (2016)
+        </div>
+      </City>
+      <City name="Aina" />
+      <City name="Aina" state="Pampanga" country="Philippines">
+        <p>
+          Pampanga is located in Central Luzon, two hours drive north of Manila
+        </p>
+      </City>
+
+      {/* Renders the component with multiple props - add your own! */}
+      <PropsDisplayer prop1="first" prop2="second" prop3={3} />
 
       <Welcome name="Aina" age="31" />
       <Welcome name="students">
