@@ -12,6 +12,7 @@ import ComplexComment from "./components/ComplexComment";
 import Comment from "./components/Comment";
 import { Callout } from "./components/CallOut";
 import { FancyBox } from "./components/FancyBox";
+import MoviesList from "./components/MovieList";
 
 function ExampleComponent() {
   return (
@@ -68,6 +69,8 @@ function App() {
       <cite>{spiderman.alterEgo}</cite>
     </>
   );
+
+  
 
   // object storing comment data - passed as props
   const comment = {
@@ -133,6 +136,8 @@ props.children */
         date={comment.date}
         text={comment.text}
       />
+
+      <MoviesList />
 
       <Callout />
       {/* <FancyBox /> */}
