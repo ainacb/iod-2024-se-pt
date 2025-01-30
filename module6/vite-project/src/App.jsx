@@ -12,10 +12,14 @@ import ComplexComment from "./components/ComplexComment";
 import Comment from "./components/Comment";
 import { Callout } from "./components/CallOut";
 import { FancyBox } from "./components/FancyBox";
-import { MoviesList} from "./components/MovieList";
+import { MoviesList } from "./components/MovieList";
 import { BigCats } from "./components/BigCats";
 import MoodChanger from "./components/MoodChanger";
 import Emoji from "./components/Emoji";
+import { BirthdayTranslator } from "./components/BirthdayTranslator";
+import { CheckWeather } from "./components/CheckWeather";
+import { Weather } from "./components/Weather";
+import { Temperature } from "./components/Temperature";
 
 function ExampleComponent() {
   return (
@@ -72,8 +76,6 @@ function App() {
       <cite>{spiderman.alterEgo}</cite>
     </>
   );
-
-  
 
   // object storing comment data - passed as props
   const comment = {
@@ -132,6 +134,10 @@ props.children */
       <MoodChanger />
 
       <BigCats />
+
+      <Weather />
+
+      <BirthdayTranslator />
 
       <Comment
         author={comment.author}
