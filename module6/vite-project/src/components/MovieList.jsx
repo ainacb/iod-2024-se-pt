@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddMovieForm } from "./AddMovieForm";
 
 function Movie({ title, year, synopsis }) {
   return (
@@ -9,7 +10,7 @@ function Movie({ title, year, synopsis }) {
   );
 }
 
-function MoviesList() {
+export function MoviesList() {
   // collection of objects representing movies
 
   const movies = [
@@ -50,10 +51,16 @@ function MoviesList() {
     />
   ));
 
+  const handleAddMovie = (newMovie) => {
+    newMovie.id = currentMovies.length + 1; // unreliable but succinct
+    setCurrentMovies([...currentMovies, newMovie]);
+  };
+
   return (
     <>
       {JSON.stringify(currentMovies, null, 2)}
       <div className="MoviesList componentBox">
+        <AddMovieForm onAddMovie={handleAddMovie} />
         <button onClick={handleReverseMovies}>Reverse Movies</button>
         <ul>
           {" "}
@@ -72,4 +79,3 @@ function MoviesList() {
     </>
   );
 }
-export { MoviesList };
