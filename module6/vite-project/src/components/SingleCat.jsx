@@ -1,6 +1,6 @@
 import React from "react";
 
-function SingleCat({ cat }) {
+function SingleCat({ cat, onDelete }) {
   return (
     <li className="catItem">
       <img src={cat.image} alt={cat.name} className="catImage" />
@@ -8,6 +8,7 @@ function SingleCat({ cat }) {
       <p>
         <em>{cat.latinName}</em>
       </p>
+      <button onClick={() => onDelete(cat.id)}>❌ Delete</button>
     </li>
   );
 }

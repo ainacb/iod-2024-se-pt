@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SingleCat from "./SingleCat";
+import { AddCatForm } from "./AddCatForm";
 
 const starterCats = [
   {
@@ -58,6 +59,21 @@ const starterCats = [
 function BigCats() {
   const [cats, setCats] = useState(starterCats);
 
+  const handleAddCat = (newCat) => {
+    if (!newCat.name || !newCat.latinName || !newCat.image) {
+      alert("Please fill out all fields!");
+      return;
+    }
+
+    const updatedCats = [...cats, { ...newCat, id: Date.now() }]; // works better than increment to prevent duplicate ID when deleting or readding cats
+
+    setCats(updatedCats);
+  };
+
+  const handleDeleteCat = (id) => {
+    setCats(cats.filter((cat) => cat.id !== id));
+  };
+
   const handleAlphabetically = () => {
     const sortedCats = [...cats].sort((a, b) => a.name.localeCompare(b.name));
     setCats(sortedCats);
@@ -80,18 +96,21 @@ function BigCats() {
   };
 
   return (
-    <div className="BigCats componentBox">
-      <h1>Big Cats</h1>
-      <button onClick={handleAlphabetically}>Sort Alphabetically</button>
-      <button onClick={handleReverse}>Reverse Order</button>
-      <button onClick={handleFilterPanthera}>Panthera Family</button>
-      <button onClick={handleReset}>Reset</button>
-      <ul className="catList">
-        {cats.map((cat) => (
-          <SingleCat key={cat.id} cat={cat} />
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="BigCats componentBox">
+        <h1>Big Cats</h1>
+        <AddCatForm onAddCat={handleAddCat} />
+        <button onClick={handleAlphabetically}>Sort Alphabetically</button>
+        <button onClick={handleReverse}>Reverse Order</button>
+        <button onClick={handleFilterPanthera}>Panthera Family</button>
+        <button onClick={handleReset}>Reset</button>
+        <ul className="catList">
+          {cats.map((cat) => (
+            <SingleCat key={cat.id} cat={cat} onDelete={handleDeleteCat} />
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
