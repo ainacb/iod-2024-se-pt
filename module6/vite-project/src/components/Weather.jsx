@@ -17,7 +17,7 @@ export function Weather() {
     <div className="Weather componentBox">
       <h2>Today's Weather</h2>
       <div>
-        <strong>{weather}</strong> with a temp of
+        <strong>{weather}</strong> with a temp of 
         {/* Child component to display temp - 
                    needs temp value as prop */}
         <Temperature temp={tempCelcius} units="C" />

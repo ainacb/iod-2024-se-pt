@@ -6,6 +6,7 @@ export function Temperature({ temp, units = "C" }) {
   return (
     <span className="Temperature ">
       <strong>
+        {" "}
         {parseInt(displayTemp)}&deg;{units}{" "}
       </strong>
     </span>

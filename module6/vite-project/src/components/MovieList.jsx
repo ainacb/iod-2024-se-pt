@@ -58,7 +58,7 @@ export function MoviesList() {
 
   return (
     <>
-      {JSON.stringify(currentMovies, null, 2)}
+      {/* {JSON.stringify(currentMovies, null, 2)} */}
       <div className="MoviesList componentBox">
         <AddMovieForm onAddMovie={handleAddMovie} />
         <button onClick={handleReverseMovies}>Reverse Movies</button>
