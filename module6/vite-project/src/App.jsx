@@ -20,6 +20,7 @@ import { BirthdayTranslator } from "./components/BirthdayTranslator";
 import { CheckWeather } from "./components/CheckWeather";
 import { Weather } from "./components/Weather";
 import { Temperature } from "./components/Temperature";
+import LoginForm from "./components/LoginForm";
 
 function ExampleComponent() {
   return (
@@ -123,6 +124,8 @@ props.children */
         </a>
       </div>
       <h1>Vite + React !!!</h1>
+
+      <LoginForm />
 
       <Greeting />
       <Greeting name="Aina">
