@@ -48,14 +48,14 @@
 
         document.getElementById("displayJsDate").innerHTML = nowDate.toString();
 
-        // 1.
+        // 1. Days between birthdate and current date
         const birthdate = new Date("1993-11-20");
         const daysBetween = dateFns.differenceInDays(nowDate, birthdate);
         document.getElementById(
           "daysBirthToCurrent"
         ).innerHTML = `${daysBetween} days`;
 
-        // 2.
+        // 2. Years, months, and days between birthdate and current date
         const duration = dateFns.intervalToDuration({
           start: birthdate,
           end: nowDate,
@@ -63,7 +63,7 @@
         const formattedDuration = `${duration.years} years, ${duration.months} months, and ${duration.days} days`;
         document.getElementById("yearsMonthDays").innerHTML = formattedDuration;
 
-        // 3.
+        // 3. Given two dates, display the date closest to the current date
         const date1 = new Date("2026-06-01");
         const date2 = new Date("2022-07-05");
         const closestDate = dateFns.closestTo(nowDate, [date1, date2]);
@@ -71,7 +71,7 @@
           "closestDate"
         ).innerHTML = `Closest date: ${dateFns.format(closestDate, "PPPP")}`;
 
-        // 4.
+        // 4. Check if Date1 is before or after Date2
         const isBefore = dateFns.isBefore(date1, date2);
         document.getElementById("beforeAfterDate").innerHTML = isBefore
           ? `Date1 (${dateFns.format(
@@ -83,10 +83,16 @@
               "PPPP"
             )}) is after Date2 (${dateFns.format(date2, "PPPP")}).`;
 
-        // 5.
+        // 5. Display the current time in London
         const timeZone = "Europe/London";
+
+        // Get the current UTC time first
         const utcDate = new Date(Date.now());
+
+        // Convert UTC time to London time
         const londonTime = dateFnsTz.utcToZonedTime(utcDate, timeZone);
+
+        // Format the London time correctly
         const formattedLondonTime = dateFnsTz.format(
           londonTime,
           "yyyy-MM-dd HH:mm:ss zzz",
