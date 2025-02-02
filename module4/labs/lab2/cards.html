@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3f2fd;
+      }
+
+      .card {
+        padding: 10px;
+        background: white;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-title {
+        font-weight: 600;
+        font-size: 3em;
+        padding: 0 0 10px 0;
+      }
+      .card-text {
+        font-weight: 400;
+        font-size: 2em;
+        color: #555;
+      }
+
+      .card img {
+        width: 500px;
+        height: 700px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: none; /* Hide initially */
+      }
+    </style>
+  </head>
+
+  <body>
+    <template id="card-template">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-text"></div>
+          <img class="card-image" src="" alt="" />
+        </div>
+      </div>
+    </template>
+
+    <div id="card-list"></div>
+
+    <script>
+      function addCard(title, text, imageUrl = "", imageAlt = "") {
+        // clone the template
+        const template = document
+          .getElementById("card-template")
+          .content.cloneNode(true);
+
+        // populate the template
+        template.querySelector(".card-title").innerText = title;
+        template.querySelector(".card-text").innerHTML = text;
+
+        // select the image element
+        const imgElement = template.querySelector(".card-image");
+
+        // if an image URL is provided, set the src, alt, and make it visible
+        if (imageUrl) {
+          imgElement.src = imageUrl;
+          imgElement.alt = imageAlt;
+          imgElement.style.display = "block";
+        }
+
+        // append the populated template to the page
+        document.querySelector("#card-list").appendChild(template);
+      }
+
+      const data = [
+        { name: "Bob", age: 23 },
+        { name: "Alice", age: 39 },
+      ];
+
+      // create cards without images
+      data.forEach((person) => {
+        addCard(`Name: ${person.name}`, `Age: ${person.age}`);
+      });
+
+      // artists array with images
+      const artists = [
+        {
+          name: "Van Gogh",
+          portfolio: [
+            {
+              title: "Portrait",
+              url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image",
+            },
+            {
+              title: "Sky",
+              url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg",
+            },
+          ],
+        },
+        {
+          name: "Monet",
+          portfolio: [
+            {
+              title: "Water Lilies",
+              url: "https://th.bing.com/th/id/OIP.hEmvGoo65cAYNf43-WmNDgAAAA?rs=1&pid=ImgDetMain",
+            },
+            {
+              title: "Impression, Sunrise",
+              url: "https://painting-planet.com/images/1/image178.jpg",
+            },
+          ],
+        },
+        {
+          name: "Picasso",
+          portfolio: [
+            {
+              title: "Guernica",
+              url: "https://artenet.es/media/reviews/photos/original/5a/52/02/5258-guernica-en-color-51-1449875319.jpg",
+            },
+            {
+              title: "The Weeping Woman",
+              url: "https://th.bing.com/th/id/OIP.N-pckAqBgL6Ema9bU4HD7wHaKU?rs=1&pid=ImgDetMain",
+            },
+          ],
+        },
+        {
+          name: "Da Vinci",
+          portfolio: [
+            {
+              title: "Mona Lisa",
+              url: "https://th.bing.com/th/id/R.f2fdd829899cfc032b4e3586146d6111?rik=SD1LyXlo5p3c2g&riu=http%3a%2f%2fkerrisdalegallery.com%2fboni%2fwp-content%2fuploads%2f2013%2f03%2fvd016pv-leonardo-da-vinci_mona-lisa.jpg&ehk=W0lDboMHVbkqf9HVcMOG5urGhKQ38bTMFneZadK6Mnw%3d&risl=&pid=ImgRaw&r=0",
+            },
+            {
+              title: "The Last Supper",
+              url: "https://www.worldhistory.org/uploads/images/12661.jpg?v=1611237602",
+            },
+          ],
+        },
+        {
+          name: "Rembrandt",
+          portfolio: [
+            {
+              title: "The Night Watch",
+              url: "https://mymodernmet.com/wp/wp-content/uploads/2021/05/rembrandt-the-night-watch-painting-1-1.jpg",
+            },
+            {
+              title: "Self-Portrait",
+              url: "https://cdn.britannica.com/82/190482-050-33D2C4C5/Self-Portrait-canvas-Rembrandt-van-Rijn-Washington-DC.jpg",
+            },
+          ],
+        },
+      ];
+
+      // loop through artists and display their portfolio
+      artists.forEach((artist) => {
+        // create portfolio list
+        let portfolioList = `<strong>Portfolio:</strong><ul>`;
+        artist.portfolio.forEach((piece) => {
+          portfolioList += `<li>${piece.title}</li>`;
+        });
+        portfolioList += `</ul>`; // fixed closing tag issue
+
+        // add the artist's card with portfolio list
+        addCard(`Artist: ${artist.name}`, portfolioList);
+
+        // add each artwork as an image card
+        artist.portfolio.forEach((piece) => {
+          addCard(piece.title, `By ${artist.name}`, piece.url, piece.title);
+        });
+      });
+    </script>
+  </body>
+</html>
