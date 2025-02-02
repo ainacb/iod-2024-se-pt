@@ -50,7 +50,7 @@
 
 
     fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
-    .then(response => response.json())
+    then(response => response.json())
     .then(json => json.forEach(item => addCard(post))) 
 
     function addCard(post) {
