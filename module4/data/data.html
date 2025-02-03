@@ -17,8 +17,10 @@
     />
     <title>Dynamic Cars</title>
   </head>
+
   <body>
     <div id="car-list" class="row"></div>
+
     <script>
       // use carData and getCars function from previous slide
       const carData = [
@@ -38,6 +40,7 @@
             "Bayerische Motoren Werke AG, commonly referred to as BMW, is a German multinational corporate manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany.",
         },
       ];
+
       function getCars() {
         return new Promise((resolve) => {
           setTimeout(function () {
@@ -46,6 +49,7 @@
           }, 1000);
         });
       }
+
       // get data asynchronously, then console.log for testing
       getCars().then((cars) => console.log(cars));
 
