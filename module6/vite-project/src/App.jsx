@@ -21,6 +21,7 @@ import { CheckWeather } from "./components/CheckWeather";
 import { Weather } from "./components/Weather";
 import { Temperature } from "./components/Temperature";
 import LoginForm from "./components/LoginForm";
+import ExplodingBomb from "./components/ExplodingBomb";
 
 function ExampleComponent() {
   return (
@@ -137,6 +138,8 @@ props.children */
       <MoodChanger />
 
       <BigCats />
+
+      <ExplodingBomb />
 
       <Weather />
 
