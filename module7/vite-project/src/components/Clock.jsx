@@ -27,7 +27,8 @@ export function Clock() {
     <div className="Clock">
       <h3>Digital Clock</h3>
       {date.toLocaleTimeString()}
-      <p>Seconds since mount: {tickCount}</p>
+      <p>Seconds since mount: </p>
+      {tickCount}
     </div>
   );
 }
