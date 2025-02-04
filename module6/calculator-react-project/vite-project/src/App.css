@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.componentBox {
+  border: 1px solid #aaa;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  background: #46444b;
+}
+
+/* .calculatorBox {
+  padding: 6;
+  width: 80;
+  max-width: auto;
+  margin-top: 10;
+  box-shadow: 1g;
+} */
+
+/* p-6 w-80 mx-auto mt-10 shadow-lg rounded-2xl */
