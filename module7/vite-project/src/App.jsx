@@ -2,6 +2,7 @@ import "./App.css";
 import ClockDisplay from "./components/ClockDisplay";
 import { ActivityFinder } from "./components/ActivityFinder";
 import { BitcoinRates } from "./components/BitcoinRates";
+import Charts from "./components/Charts";
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
 
       <BitcoinRates />
       {/* <ClockDisplay /> */}
+
+      <Charts />
     </>
   );
 }
