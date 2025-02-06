@@ -32,14 +32,3 @@ export function Clock() {
     </div>
   );
 }
-// ++ Try removing the dependency array from useEffect
-// and notice the difference in ‘tick’ log messages
-// ++ Why do the console messages appear double?
-
-// ++ Watch the console when the Clock is removed
-// does the ticking still continue now?
-
-// ++ Try to add another state variable tickCount, to keep
-// track of (and display) the number of seconds the clock
-// has ticked since mounting. Reset it to 0 on unmount.
-// Hint: see here if the counter has issues incrementing
