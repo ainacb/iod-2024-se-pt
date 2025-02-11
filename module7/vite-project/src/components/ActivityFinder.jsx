@@ -1,30 +1,39 @@
 import { useState, useEffect } from "react";
+import { useData } from "../hooks/useData";
 
 export function ActivityFinder() {
   // Fetches a random activity
   const [participants, setParticipants] = useState(1);
-  const [activity, setActivity] = useState("");
+  // const [activity, setActivity] = useState("");
 
-  useEffect(() => {
-    console.log("running effect");
-    let ignore = false; // flag to allow ignoring of the fetch result
+  const data = useData(
+    "https://bored.api.lewagon.com/api/activity?" +
+      "participants=" +
+      participants
+  );
+  // get the activity from the json or show error message if failed
+  const activity = data ? data.activity : "not found";
 
-    fetch(
-      "https://bored.api.lewagon.com/api/activity?" +
-        "participants=" +
-        participants
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        if (!ignore) setActivity(json.activity);
-      });
+  // useEffect(() => {
+  //   console.log("running effect");
+  //   let ignore = false; // flag to allow ignoring of the fetch result
 
-    // cleanup function - runs when unmounted or dependencies change
-    return () => {
-      ignore = true; // ignore now invalid fetch results
-      console.log("cleanup effect");
-    };
-  }, [participants]);
+  //   fetch(
+  //     "https://bored.api.lewagon.com/api/activity?" +
+  //       "participants=" +
+  //       participants
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       if (!ignore) setActivity(json.activity);
+  //     });
+
+  //   // cleanup function - runs when unmounted or dependencies change
+  //   return () => {
+  //     ignore = true; // ignore now invalid fetch results
+  //     console.log("cleanup effect");
+  //   };
+  // }, [participants]);
 
   return (
     <div className="ActivityFinder componentBox">
