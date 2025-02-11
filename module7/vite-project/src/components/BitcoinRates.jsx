@@ -1,28 +1,36 @@
 import { useState, useEffect } from "react";
+import { useRate } from "../hooks/useRate";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
 export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
-  const [rate, setRate] = useState(null);
+  // const [rate, setRate] = useState(null);
 
-  useEffect(() => {
-    console.log("running effect");
-    let ignore = false;
+  const data = useRate(
+    `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency.toLowerCase()}`,
+    currency
+  );
+  console.log(data);
+  const rate = data ? data : "not found";
 
-    fetch(
-      `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        if (!ignore) setRate(json.bitcoin[currency.toLowerCase()]);
-      });
+  // useEffect(() => {
+  //   console.log("running effect");
+  //   let ignore = false;
 
-    return () => {
-      ignore = true; // ignore now invalid fetch results
-      console.log("cleanup effect");
-    };
-  }, [currency]);
+  //   fetch(
+  //     `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       if (!ignore) setRate(json.bitcoin[currency.toLowerCase()]);
+  //     });
+
+  //   return () => {
+  //     ignore = true; // ignore now invalid fetch results
+  //     console.log("cleanup effect");
+  //   };
+  // }, [currency]);
 
   const options = currencies.map((curr) => (
     <option value={curr} key={curr}>
@@ -41,7 +49,7 @@ export function BitcoinRates() {
         </select>
       </label>
       <p>
-        1 Bitcoin = ${rate} {currency}
+        1 Bitcoin = {rate ? rate : "Loading..."} {currency}
       </p>
     </div>
   );
