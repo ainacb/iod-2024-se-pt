@@ -7,26 +7,38 @@ import RefCounter from "./components/RefCounter";
 import VideoPlayer from "./components/VideoPlayer";
 import ReducerCounter from "./components/ReducerCounter";
 import PostListReducer from "./components/PostListReducer";
+import { UserProvider } from "./context/UserContext";
+import LoginForm from "./components/LoginForm";
+import MyThemeProvider from "./context/ThemeContext";
+import Emoji from "./components/Emoji";
 
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <UserProvider>
+        <MyThemeProvider>
+          <h1>Vite + React</h1>
 
-      {/* <PostListReducer /> */}
+          <Emoji />
 
-      {/* <ReducerCounter /> */}
+          {/* <LoginForm /> */}
 
-      {/* <VideoPlayer /> */}
+          {/* <PostListReducer /> */}
 
-      {/* <RefCounter /> */}
+          {/* <ReducerCounter /> */}
 
-      {/* <ActivityFinder /> */}
+          {/* <VideoPlayer /> */}
 
-      <BitcoinRates />
-      {/* <ClockDisplay /> */}
+          {/* <RefCounter /> */}
 
-      {/* <Charts /> */}
+          {/* <ActivityFinder /> */}
+
+          {/* <BitcoinRates /> */}
+          {/* <ClockDisplay /> */}
+
+          {/* <Charts /> */}
+        </MyThemeProvider>
+      </UserProvider>
     </>
   );
 }
