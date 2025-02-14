@@ -10,33 +10,27 @@ import PostListReducer from "./components/PostListReducer";
 import { UserProvider } from "./context/UserContext";
 import LoginForm from "./components/LoginForm";
 import MyThemeProvider from "./context/ThemeContext";
-import Emoji from "./components/Emoji";
+import { Emoji } from "./components/Emoji";
+import { EmojiProvider } from "./context/EmojiContext";
 
 function App() {
   return (
     <>
       <UserProvider>
         <MyThemeProvider>
-          <h1>Vite + React</h1>
-
-          <Emoji />
-
-          {/* <LoginForm /> */}
-
-          {/* <PostListReducer /> */}
-
-          {/* <ReducerCounter /> */}
-
-          {/* <VideoPlayer /> */}
-
-          {/* <RefCounter /> */}
-
-          {/* <ActivityFinder /> */}
-
-          {/* <BitcoinRates /> */}
-          {/* <ClockDisplay /> */}
-
-          {/* <Charts /> */}
+          <EmojiProvider>
+            <h1>Vite + React</h1>
+            <Emoji />
+            <BitcoinRates />
+            {/* <LoginForm /> */}
+            {/* <PostListReducer /> */}
+            {/* <ReducerCounter /> */}
+            {/* <VideoPlayer /> */}
+            {/* <RefCounter /> */}
+            {/* <ActivityFinder /> */}
+            {/* <ClockDisplay /> */}
+            {/* <Charts /> */}
+          </EmojiProvider>
         </MyThemeProvider>
       </UserProvider>
     </>

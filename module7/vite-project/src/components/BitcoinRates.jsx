@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useRate } from "../hooks/useRate";
+import { useEmojiContext } from "../context/EmojiContext";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
 export function BitcoinRates() {
   const [currency, setCurrency] = useState(currencies[0]);
+  const { emoji } = useEmojiContext();
   // const [rate, setRate] = useState(null);
 
   const data = useRate(
@@ -49,7 +51,7 @@ export function BitcoinRates() {
         </select>
       </label>
       <p>
-        1 Bitcoin = {rate ? rate : "Loading..."} {currency}
+        1 Bitcoin = {rate ? rate : "Loading..."} {currency} {emoji}
       </p>
     </div>
   );
