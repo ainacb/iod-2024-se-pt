@@ -12,6 +12,8 @@ import LoginForm from "./components/LoginForm";
 import MyThemeProvider from "./context/ThemeContext";
 import { Emoji } from "./components/Emoji";
 import { EmojiProvider } from "./context/EmojiContext";
+import AppRoutes from "./routes/AppRoutes";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
@@ -20,8 +22,10 @@ function App() {
         <MyThemeProvider>
           <EmojiProvider>
             <h1>Vite + React</h1>
-            <Emoji />
-            <BitcoinRates />
+            <NavBar />
+            <AppRoutes />
+            {/* <Emoji />
+            <BitcoinRates /> */}
             {/* <LoginForm /> */}
             {/* <PostListReducer /> */}
             {/* <ReducerCounter /> */}
