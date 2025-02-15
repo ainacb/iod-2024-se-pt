@@ -21,11 +21,11 @@ function App() {
       <UserProvider>
         <MyThemeProvider>
           <EmojiProvider>
-            <h1>Vite + React</h1>
+            {/* <h1>Vite + React</h1> */}
             <NavBar />
             <AppRoutes />
-            {/* <Emoji />
-            <BitcoinRates /> */}
+            {/* <Emoji /> */}
+            {/* <BitcoinRates /> */}
             {/* <LoginForm /> */}
             {/* <PostListReducer /> */}
             {/* <ReducerCounter /> */}
