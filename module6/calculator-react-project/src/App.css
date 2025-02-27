@@ -1,0 +1,183 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* .logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.componentBox {
+  border: 1px solid #aaa;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  background: #46444b;
+}
+
+
+p-6 w-80 mx-auto mt-10 shadow-lg rounded-2xl */
+
+/* Center the App */
+/* .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+} */
+
+/* Main Calculator Container */
+.Calculator {
+  width: 350px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0062ff, #f8f9fa);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.Calculator:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.Calculator h2 {
+  color: #222;
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Inputs and Select */
+.Calculator input,
+.Calculator select {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #00039e;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.Calculator input:focus,
+.Calculator select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Button */
+.Calculator button {
+  width: 95%;
+  padding: 12px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.Calculator button:hover {
+  background: linear-gradient(135deg, #0056b3, #003c80);
+  box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.Calculator button:active {
+  transform: scale(0.98);
+}
+
+/* Result Display */
+.Calculator h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #000141;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(0, 123, 255, 0.1);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 400px) {
+  .Calculator {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Operator Button Container */
+.operator-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* Individual Operator Button */
+.operator-buttons button {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #93c3f4;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.operator-buttons button:hover {
+  background: #007bff;
+  color: white;
+}
+
+.operator-buttons button.selected {
+  background: #0056b3;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+}
