@@ -11,27 +11,12 @@
   <body>
     <!-- Prepare a DOM with a defined width and height for ECharts -->
     <div id="main" style="width: 900px; height: 600px"></div>
+
     <script type="text/javascript">
+      // Initialise the echarts instance based on the prepared div
+      let myChart = echarts.init(document.getElementById("main"));
+
       // Specify the configuration items and data for the chart
-      let options = {
-        title: { text: "Fake Store Categories" },
-        xAxis: {
-          data: ["Category 1", "Category 2", "Category 3", "Category 4"],
-        },
-        tooltip: {},
-        yAxis: {},
-        series: [
-          {
-            name: "# products",
-            type: "bar",
-            data: [0, 1, 5, 2],
-            label: {
-              show: true,
-              postion: "top",
-            },
-          },
-        ],
-      };
 
       fetch("https://fakestoreapi.com/products")
         .then((response) => response.json())
@@ -44,6 +29,7 @@
           json.forEach((item) => {
             if (categoryCount[item.category]) {
               // Check if this category exist
+
               categoryCount[item.category]++; // If it exists, add 1 to current count
               // console.log("TRUE", categoryCount)
             } else {
@@ -54,17 +40,31 @@
 
           console.log("CAT COUNT", categoryCount);
 
-          // user.firstName = 'Adam'
-          options.xAxis.data = Object.keys(categoryCount);
-          options.series[0].data = Object.values(categoryCount);
+          let options = {
+            title: { text: "Fake Store Categories" },
+            tooltip: {},
+            xAxis: {
+              type: "category",
+              data: Object.keys(categoryCount),
+            },
+            yAxis: { type: "value" },
+            series: [
+              {
+                name: "# Products",
+                type: "bar",
+                data: Object.values(categoryCount),
+                label: {
+                  show: true,
+                  position: "top",
+                },
+              },
+            ],
+          };
 
-          console.log(Object.values(categoryCount));
-
+          // Apply the updated options
           myChart.setOption(options);
-        });
-
-      // Initialise the echarts instance based on the prepared div
-      let myChart = echarts.init(document.getElementById("main"));
+        })
+        .catch((error) => console.error("Error fetching data:", error));
     </script>
   </body>
 </html>
