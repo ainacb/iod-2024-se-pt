@@ -1,0 +1,35 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Fake eCommerce Store API",
+    "description": "API for fetching products and categories"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/products",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get all products",
+        "tags": ["Products"],
+        "responses": {
+          "200": {
+            "description": "List of products"
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Get product categories",
+        "tags": ["Products"],
+        "responses": {
+          "200": {
+            "description": "List of categories"
+          }
+        }
+      }
+    }
+  }
+}
