@@ -7,5 +7,11 @@ const port = 3000;
 const calculatorRoutes = require("./routes/calculatorRoutes");
 app.use("/calculator", calculatorRoutes);
 
+const Calculator = require('..libraries/Calculator');
+let myCalc = new Calculator()
+
+
+
+
 // export the app
 module.exports = app;
