@@ -43,6 +43,78 @@
           }
         }
       }
+    },
+    "/calculator/subtract": {
+      "get": {
+        "tags": ["Subtraction Service"],
+        "summary": "Subtract 2 numbers",
+        "parameters": [
+          {
+            "name": "num1",
+            "in": "query",
+            "description": "The First Number"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "description": "The Second number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to subtract one number from another"
+          }
+        }
+      }
+    },
+    "/calculator/multiply": {
+      "get": {
+        "tags": ["Multiplication Service"],
+        "summary": "Multiply 2 numbers",
+        "parameters": [
+          {
+            "name": "num1",
+            "in": "query",
+            "description": "The First Number"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "description": "The Second number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to multiply two numbers together"
+          }
+        }
+      }
+    },
+    "/calculator/divide": {
+      "get": {
+        "tags": ["Division Service"],
+        "summary": "Divide 2 numbers",
+        "parameters": [
+          {
+            "name": "num1",
+            "in": "query",
+            "description": "The First Number"
+          },
+          {
+            "name": "num2",
+            "in": "query",
+            "description": "The Second number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to divide one number by another"
+          },
+          "400": {
+            "description": "Error - Division by zero"
+          }
+        }
+      }
     }
   }
 }
