@@ -7,11 +7,12 @@ const port = 3000;
 const calculatorRoutes = require("./routes/calculatorRoutes");
 app.use("/calculator", calculatorRoutes);
 
-const Calculator = require('..libraries/Calculator');
-let myCalc = new Calculator()
+const Calculator = require("./lib/calculator");
+let myCalc = new Calculator();
 
-
-
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
 
 // export the app
 module.exports = app;
