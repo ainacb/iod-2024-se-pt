@@ -10,7 +10,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to my MongoDB application." });
+  res.json({ message: "Welcome to my SQL application." });
 });
 
 // set port, listen for requests
