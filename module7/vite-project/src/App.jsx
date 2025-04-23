@@ -24,7 +24,7 @@ function App() {
             {/* <h1>Vite + React</h1> */}
             <NavBar />
             <AppRoutes />
-            {/* <Emoji /> */}
+            <Emoji />
             {/* <BitcoinRates /> */}
             {/* <LoginForm /> */}
             {/* <PostListReducer /> */}
