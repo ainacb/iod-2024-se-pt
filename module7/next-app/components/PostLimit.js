@@ -4,6 +4,7 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 // Client component allowing user to choose the number of posts displayed
 // and set new value in search params
+
 export default function PostsLimit(defaultLimit) {
   const searchParams = useSearchParams(); // next.js hook for search params
   const router = useRouter(); // next.js hook for client side navigation
